@@ -11,4 +11,5 @@
 @interface CanvasViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet UIToolbar *toolbar;
+- (IBAction)tapPalette:(id)sender;
 @end

@@ -1,19 +1,18 @@
 //
-//  CanvasViewController.m
+//  PaletteViewController.m
 //  DraftNote
 //
 //  Created by Colin Yang Hong on 13-8-5.
 //  Copyright (c) 2013年 Colin Yang Hong. All rights reserved.
 //
 
-#import "CanvasViewController.h"
 #import "PaletteViewController.h"
 
-@interface CanvasViewController ()
+@interface PaletteViewController ()
 
 @end
 
-@implementation CanvasViewController
+@implementation PaletteViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,24 +23,10 @@
     return self;
 }
 
-- (void)dealloc {
-    [_toolbar release];
-    [super dealloc];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,11 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)tapPalette:(id)sender
+- (IBAction)tapDone:(id)sender
 {
-    PaletteViewController *paletteViewController = [[[PaletteViewController alloc] init] autorelease];
-    [self.navigationController pushViewController:paletteViewController animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
 @end
