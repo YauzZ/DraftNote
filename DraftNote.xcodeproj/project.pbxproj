@@ -29,6 +29,10 @@
 		3B51B07517AF8412005CE230 /* undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51B06C17AF8412005CE230 /* undo.png */; };
 		3B51B07A17AF861B005CE230 /* PaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51B07817AF861B005CE230 /* PaletteViewController.m */; };
 		3B51B07B17AF861B005CE230 /* PaletteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B51B07917AF861B005CE230 /* PaletteViewController.xib */; };
+		3B51B08017AF949C005CE230 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B51B07F17AF949C005CE230 /* QuartzCore.framework */; };
+		3BC4D8E317AF95C3003C4CAA /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E217AF95C3003C4CAA /* Vertex.m */; };
+		3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E517AF9AEC003C4CAA /* Stroke.m */; };
+		3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E817AF9FD2003C4CAA /* Dot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,14 @@
 		3B51B07717AF861B005CE230 /* PaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteViewController.h; sourceTree = "<group>"; };
 		3B51B07817AF861B005CE230 /* PaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteViewController.m; sourceTree = "<group>"; };
 		3B51B07917AF861B005CE230 /* PaletteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaletteViewController.xib; sourceTree = "<group>"; };
+		3B51B07D17AF9339005CE230 /* Mark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
+		3B51B07F17AF949C005CE230 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3BC4D8E117AF95C3003C4CAA /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		3BC4D8E217AF95C3003C4CAA /* Vertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vertex.m; sourceTree = "<group>"; };
+		3BC4D8E417AF9AEC003C4CAA /* Stroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stroke.h; sourceTree = "<group>"; };
+		3BC4D8E517AF9AEC003C4CAA /* Stroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stroke.m; sourceTree = "<group>"; };
+		3BC4D8E717AF9FD2003C4CAA /* Dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dot.h; sourceTree = "<group>"; };
+		3BC4D8E817AF9FD2003C4CAA /* Dot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B51B08017AF949C005CE230 /* QuartzCore.framework in Frameworks */,
 				3B51B04117AF8272005CE230 /* UIKit.framework in Frameworks */,
 				3B51B04317AF8272005CE230 /* Foundation.framework in Frameworks */,
 				3B51B04517AF8272005CE230 /* CoreGraphics.framework in Frameworks */,
@@ -79,8 +92,7 @@
 		3B51B03417AF8272005CE230 = {
 			isa = PBXGroup;
 			children = (
-				3B51B06217AF83F1005CE230 /* Resources */,
-				3B51B04617AF8272005CE230 /* Classes */,
+				3B51B04617AF8272005CE230 /* DraftNote */,
 				3B51B03F17AF8272005CE230 /* Frameworks */,
 				3B51B03E17AF8272005CE230 /* Products */,
 			);
@@ -97,6 +109,7 @@
 		3B51B03F17AF8272005CE230 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B51B07F17AF949C005CE230 /* QuartzCore.framework */,
 				3B51B04017AF8272005CE230 /* UIKit.framework */,
 				3B51B04217AF8272005CE230 /* Foundation.framework */,
 				3B51B04417AF8272005CE230 /* CoreGraphics.framework */,
@@ -104,14 +117,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3B51B04617AF8272005CE230 /* Classes */ = {
+		3B51B04617AF8272005CE230 /* DraftNote */ = {
 			isa = PBXGroup;
 			children = (
+				3B51B06217AF83F1005CE230 /* Resources */,
 				3B51B07C17AF861F005CE230 /* PaletteViewController */,
 				3B51B07617AF85F4005CE230 /* CanvasViewController */,
 				3B51B04717AF8272005CE230 /* Supporting Files */,
+				3B51B07E17AF9340005CE230 /* Mark */,
 			);
-			name = Classes;
 			path = DraftNote;
 			sourceTree = "<group>";
 		};
@@ -137,7 +151,6 @@
 				3B51B06317AF8412005CE230 /* Images */,
 			);
 			name = Resources;
-			path = DraftNote;
 			sourceTree = "<group>";
 		};
 		3B51B06317AF8412005CE230 /* Images */ = {
@@ -174,6 +187,20 @@
 				3B51B07917AF861B005CE230 /* PaletteViewController.xib */,
 			);
 			name = PaletteViewController;
+			sourceTree = "<group>";
+		};
+		3B51B07E17AF9340005CE230 /* Mark */ = {
+			isa = PBXGroup;
+			children = (
+				3B51B07D17AF9339005CE230 /* Mark.h */,
+				3BC4D8E117AF95C3003C4CAA /* Vertex.h */,
+				3BC4D8E217AF95C3003C4CAA /* Vertex.m */,
+				3BC4D8E417AF9AEC003C4CAA /* Stroke.h */,
+				3BC4D8E517AF9AEC003C4CAA /* Stroke.m */,
+				3BC4D8E717AF9FD2003C4CAA /* Dot.h */,
+				3BC4D8E817AF9FD2003C4CAA /* Dot.m */,
+			);
+			name = Mark;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +283,9 @@
 				3B51B05117AF8272005CE230 /* AppDelegate.m in Sources */,
 				3B51B06017AF8338005CE230 /* CanvasViewController.m in Sources */,
 				3B51B07A17AF861B005CE230 /* PaletteViewController.m in Sources */,
+				3BC4D8E317AF95C3003C4CAA /* Vertex.m in Sources */,
+				3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */,
+				3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +398,7 @@
 				3B51B05C17AF8272005CE230 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
