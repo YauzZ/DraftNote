@@ -14,10 +14,14 @@
 #import "Stroke.h"
 
 @interface CanvasViewController ()
+{
+    NSTimeInterval lastTimeStamp;
+}
 
 @property (nonatomic, retain) UIView *testview;
 
-@property (nonatomic, retain) NSMutableArray *strokes;
+@property (nonatomic, retain) Stroke *firstStroke;
+
 @end
 
 @implementation CanvasViewController
@@ -27,7 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.strokes = [NSMutableArray array];
+        self.firstStroke = [[[Stroke alloc] init] autorelease];
         
         self.testview = [[[UIView alloc] initWithFrame:self.view.bounds]autorelease];
         _testview.backgroundColor = [UIColor greenColor];
@@ -76,27 +80,42 @@
 {
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:_testview];
-    Stroke *lastStroke = [[[Stroke alloc] init] autorelease];
-    lastStroke.size = 5;
-    lastStroke.color = [UIColor blueColor];
-    [_strokes addObject:lastStroke];
     
-//    Dot *lastDot = [[[Dot alloc] init] autorelease];
-//    lastDot.location = location;
-//    lastDot.size = 10;
-//    lastDot.color = [UIColor redColor];
-//    [lastStroke addMark:lastDot];
+    
+    Dot *lastDot = [[[Dot alloc] init] autorelease];
+    lastDot.location = location;
+    lastDot.size = 10;
+    lastDot.color = [UIColor redColor];
+    [_firstStroke addMark:lastDot];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:_testview];
+    
+    Stroke *lastStroke = nil;
+    if (![_firstStroke.lastChild isKindOfClass:[Stroke class]]) {
+        [_firstStroke removeMark:_firstStroke.lastChild];
+        lastStroke = [[[Stroke alloc] init] autorelease];
+        [_firstStroke addMark:lastStroke];
+    } else {
+        lastStroke = _firstStroke.lastChild;
+    }
+    
+    lastStroke.size = 5;
+    lastStroke.color = [UIColor blueColor];
+    
+    
     Vertex *lastVertex = [[[Vertex alloc] init] autorelease];
     lastVertex.location = location;
     
-    Stroke *lastStroke = [_strokes lastObject];
     [lastStroke addMark:lastVertex];
+    
+    if (event.timestamp - lastTimeStamp > 0.01) {
+        lastTimeStamp = event.timestamp;
+        [_testview.layer setNeedsDisplay];
+    }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -111,9 +130,7 @@
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
-    for (Stroke *strokeOne in _strokes) {
-        [strokeOne drawWithContext:ctx];
-    }
+    [_firstStroke drawWithContext:ctx];
 }
 
 @end
