@@ -34,9 +34,12 @@
 {
     CanvasViewController *viewController = [CanvasViewController defaultInstance];
     _sliderOfSize.value = viewController.size;
-    _sliderOfB.value = 0.0;
-    _sliderOfR.value = 0.0;
-    _sliderOfG.value = 0.0;
+    
+    float red,blue,green;
+    [viewController.color getRed:&red green:&green blue:&blue alpha:nil];
+    _sliderOfB.value = blue;
+    _sliderOfR.value = red;
+    _sliderOfG.value = green;
     [self valueOfColorChanged];
 }
 
