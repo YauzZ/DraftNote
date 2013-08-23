@@ -14,6 +14,7 @@
 #import "Stroke.h"
 #import "NSMutableArray+Stack.h"
 
+
 static CanvasViewController *instance = nil;
 
 @interface CanvasViewController ()
@@ -21,12 +22,9 @@ static CanvasViewController *instance = nil;
     NSTimeInterval lastTimeStamp;
 }
 
-@property (nonatomic, retain) UIView *testview;
+@property (nonatomic, retain) UIView *currentScribbleView;
 
-@property (nonatomic, retain) Stroke *firstStroke;
-
-@property (nonatomic, retain) NSMutableArray *stackOfredo;
-
+@property (nonatomic, retain) NSMutableArray *stackOfMarks;
 @end
 
 @implementation CanvasViewController
@@ -37,16 +35,15 @@ static CanvasViewController *instance = nil;
     if (self) {
         // Custom initialization
         
-        self.size = 5;
-        self.color = [UIColor blackColor];
+
+        self.stackOfMarks = [NSMutableArray array];
         
-        self.firstStroke = [[[Stroke alloc] init] autorelease];
-        self.stackOfredo = [NSMutableArray array];
+        self.currentScribbleView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)] autorelease];
+        _currentScribbleView.backgroundColor = [UIColor clearColor];
+        _currentScribbleView.layer.delegate = self;
+        [self.view addSubview:_currentScribbleView];
         
-        self.testview = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)] autorelease];
-        _testview.backgroundColor = [UIColor clearColor];
-        _testview.layer.delegate = self;
-        [self.view addSubview:_testview];
+        self.currentScribble = [[[Scribble alloc] init] autorelease];
     }
     return self;
 }
@@ -73,7 +70,7 @@ static CanvasViewController *instance = nil;
 - (void)viewDidAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = YES;
-    [_testview.layer setNeedsDisplay];
+    [_currentScribbleView.layer setNeedsDisplay];
 }
 
 
@@ -96,57 +93,57 @@ static CanvasViewController *instance = nil;
 
 - (IBAction)tapTrash:(id)sender
 {
-    self.firstStroke = [[[Stroke alloc] init] autorelease];
-    [_testview.layer setNeedsDisplay];
+    [_stackOfMarks removeAllObjects];
+    [_currentScribbleView.layer setNeedsDisplay];
 }
 
 - (IBAction)tapUndo:(id)sender
 {
-    if (_firstStroke.lastChild != nil) {
-        [_stackOfredo push:_firstStroke.lastChild];
-        [_firstStroke removeMark:_firstStroke.lastChild];
-        [_testview.layer setNeedsDisplay];
+    if (_currentScribble.parentStroke.lastChild != nil) {
+        [_stackOfMarks push:_currentScribble.parentStroke.lastChild];
+        [_currentScribble removeMark:_currentScribble.parentStroke.lastChild];
+        [_currentScribbleView.layer setNeedsDisplay];
     }
 }
 
 - (IBAction)tapRedo:(id)sender
 {
-    Stroke *stroke = [_stackOfredo pop];
+    Stroke *stroke = [_stackOfMarks pop];
     if (stroke != nil) {
-        [_firstStroke addMark:stroke];
-        [_testview.layer setNeedsDisplay];
+        [_currentScribble.parentStroke addMark:stroke];
+        [_currentScribbleView.layer setNeedsDisplay];
     }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:_testview];
+    CGPoint location = [touch locationInView:_currentScribbleView];
     
     
     Dot *lastDot = [[[Dot alloc] init] autorelease];
     lastDot.location = location;
-    lastDot.size = _size;
-    lastDot.color = _color;
-    [_firstStroke addMark:lastDot];
+    lastDot.size = _currentScribble.size;
+    lastDot.color = _currentScribble.color;
+    [_currentScribble.parentStroke addMark:lastDot];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:_testview];
+    CGPoint location = [touch locationInView:_currentScribbleView];
     
     Stroke *lastStroke = nil;
-    if (![_firstStroke.lastChild isKindOfClass:[Stroke class]]) {
-        [_firstStroke removeMark:_firstStroke.lastChild];
+    if (![_currentScribble.parentStroke.lastChild isKindOfClass:[Stroke class]]) {
+        [_currentScribble.parentStroke removeMark:_currentScribble.parentStroke.lastChild];
         lastStroke = [[[Stroke alloc] init] autorelease];
-        [_firstStroke addMark:lastStroke];
+        [_currentScribble.parentStroke addMark:lastStroke];
     } else {
-        lastStroke = _firstStroke.lastChild;
+        lastStroke = _currentScribble.parentStroke.lastChild;
     }
     
-    lastStroke.size = _size;
-    lastStroke.color = _color;
+    lastStroke.size = _currentScribble.size;
+    lastStroke.color = _currentScribble.color;
     
     
     Vertex *lastVertex = [[[Vertex alloc] init] autorelease];
@@ -156,7 +153,7 @@ static CanvasViewController *instance = nil;
     
     if (event.timestamp - lastTimeStamp > 0.01) {
         lastTimeStamp = event.timestamp;
-        [_testview.layer setNeedsDisplay];
+        [_currentScribbleView.layer setNeedsDisplay];
     }
 }
 
@@ -167,13 +164,13 @@ static CanvasViewController *instance = nil;
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [_stackOfredo removeAllObjects];
-    [_testview.layer setNeedsDisplay];
+    [_stackOfMarks removeAllObjects];
+    [_currentScribbleView.layer setNeedsDisplay];
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
-    [_firstStroke drawWithContext:ctx];
+    [_currentScribble.parentStroke drawWithContext:ctx];
 }
 
 @end

@@ -58,7 +58,9 @@
 
 - (void)addMark:(id<Mark>)mark
 {
-    [_children addObject:mark];
+    if (mark != nil) {
+        [_children addObject:mark];
+    }
 }
 
 - (void)removeMark:(id<Mark>)mark

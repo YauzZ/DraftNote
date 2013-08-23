@@ -34,6 +34,7 @@
 		3BC4D8E317AF95C3003C4CAA /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E217AF95C3003C4CAA /* Vertex.m */; };
 		3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E517AF9AEC003C4CAA /* Stroke.m */; };
 		3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E817AF9FD2003C4CAA /* Dot.m */; };
+		3BD648B117C74E85004C60EA /* Scribble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD648B017C74E85004C60EA /* Scribble.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		3BC4D8E517AF9AEC003C4CAA /* Stroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stroke.m; sourceTree = "<group>"; };
 		3BC4D8E717AF9FD2003C4CAA /* Dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dot.h; sourceTree = "<group>"; };
 		3BC4D8E817AF9FD2003C4CAA /* Dot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dot.m; sourceTree = "<group>"; };
+		3BD648AF17C74E85004C60EA /* Scribble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scribble.h; sourceTree = "<group>"; };
+		3BD648B017C74E85004C60EA /* Scribble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scribble.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 				3B51B06217AF83F1005CE230 /* Resources */,
 				3B51B07C17AF861F005CE230 /* PaletteViewController */,
 				3B51B07617AF85F4005CE230 /* CanvasViewController */,
+				3BD648AE17C74E31004C60EA /* Scribble */,
 				3B51B07E17AF9340005CE230 /* Mark */,
 			);
 			path = DraftNote;
@@ -216,6 +220,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		3BD648AE17C74E31004C60EA /* Scribble */ = {
+			isa = PBXGroup;
+			children = (
+				3BD648AF17C74E85004C60EA /* Scribble.h */,
+				3BD648B017C74E85004C60EA /* Scribble.m */,
+			);
+			name = Scribble;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,6 +313,7 @@
 				3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */,
 				3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */,
 				3B8EA2A317C4C37800B8C7C9 /* NSMutableArray+Stack.m in Sources */,
+				3BD648B117C74E85004C60EA /* Scribble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

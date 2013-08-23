@@ -33,10 +33,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     CanvasViewController *viewController = [CanvasViewController defaultInstance];
-    _sliderOfSize.value = viewController.size;
+    _sliderOfSize.value = viewController.currentScribble.size;
     
     float red,blue,green;
-    [viewController.color getRed:&red green:&green blue:&blue alpha:nil];
+    [viewController.currentScribble.color getRed:&red green:&green blue:&blue alpha:nil];
     _sliderOfB.value = blue;
     _sliderOfR.value = red;
     _sliderOfG.value = green;
@@ -58,8 +58,8 @@
 - (IBAction)tapDone:(id)sender
 {
     CanvasViewController *viewController = [CanvasViewController defaultInstance];
-    viewController.color = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:1.0];
-    viewController.size = _sliderOfSize.value;
+    viewController.currentScribble.color = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:1.0];
+    viewController.currentScribble.size = _sliderOfSize.value;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
