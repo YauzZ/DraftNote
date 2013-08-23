@@ -18,6 +18,8 @@
 - (IBAction)tapPalette:(id)sender;
 
 - (IBAction)tapTrash:(id)sender;
+- (IBAction)tapUndo:(id)sender;
+- (IBAction)tapRedo:(id)sender;
 
 + (CanvasViewController *)defaultInstance;
 @end

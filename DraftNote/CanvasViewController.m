@@ -12,6 +12,7 @@
 #import "Dot.h"
 #import "Vertex.h"
 #import "Stroke.h"
+#import "NSMutableArray+Stack.h"
 
 static CanvasViewController *instance = nil;
 
@@ -23,6 +24,8 @@ static CanvasViewController *instance = nil;
 @property (nonatomic, retain) UIView *testview;
 
 @property (nonatomic, retain) Stroke *firstStroke;
+
+@property (nonatomic, retain) NSMutableArray *stackOfredo;
 
 @end
 
@@ -38,6 +41,7 @@ static CanvasViewController *instance = nil;
         self.color = [UIColor blackColor];
         
         self.firstStroke = [[[Stroke alloc] init] autorelease];
+        self.stackOfredo = [NSMutableArray array];
         
         self.testview = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)] autorelease];
         _testview.backgroundColor = [UIColor clearColor];
@@ -96,6 +100,24 @@ static CanvasViewController *instance = nil;
     [_testview.layer setNeedsDisplay];
 }
 
+- (IBAction)tapUndo:(id)sender
+{
+    if (_firstStroke.lastChild != nil) {
+        [_stackOfredo push:_firstStroke.lastChild];
+        [_firstStroke removeMark:_firstStroke.lastChild];
+        [_testview.layer setNeedsDisplay];
+    }
+}
+
+- (IBAction)tapRedo:(id)sender
+{
+    Stroke *stroke = [_stackOfredo pop];
+    if (stroke != nil) {
+        [_firstStroke addMark:stroke];
+        [_testview.layer setNeedsDisplay];
+    }
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -145,6 +167,7 @@ static CanvasViewController *instance = nil;
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [_stackOfredo removeAllObjects];
     [_testview.layer setNeedsDisplay];
 }
 
