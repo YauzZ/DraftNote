@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface PaletteViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UIView *palettePreview;
 
+@property (retain, nonatomic) IBOutlet UISlider *sliderOfR;
+@property (retain, nonatomic) IBOutlet UISlider *sliderOfG;
+@property (retain, nonatomic) IBOutlet UISlider *sliderOfB;
+@property (retain, nonatomic) IBOutlet UISlider *sliderOfSize;
+
+
+- (IBAction)valueOfColorChanged;
 - (IBAction)tapDone:(id)sender;
 @end

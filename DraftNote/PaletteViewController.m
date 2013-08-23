@@ -7,6 +7,7 @@
 //
 
 #import "PaletteViewController.h"
+#import "CanvasViewController.h"
 
 @interface PaletteViewController ()
 
@@ -29,14 +30,42 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    CanvasViewController *viewController = [CanvasViewController defaultInstance];
+    _sliderOfSize.value = viewController.size;
+    _sliderOfB.value = 0.0;
+    _sliderOfR.value = 0.0;
+    _sliderOfG.value = 0.0;
+    [self valueOfColorChanged];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)valueOfColorChanged
+{
+    _palettePreview.backgroundColor = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:1.0];
+}
+
 - (IBAction)tapDone:(id)sender
 {
+    CanvasViewController *viewController = [CanvasViewController defaultInstance];
+    viewController.color = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:1.0];
+    viewController.size = _sliderOfSize.value;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)dealloc {
+    [_sliderOfR release];
+    [_sliderOfG release];
+    [_sliderOfB release];
+    [_palettePreview release];
+    [_sliderOfSize release];
+    [super dealloc];
 }
 @end

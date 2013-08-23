@@ -13,6 +13,8 @@
 #import "Vertex.h"
 #import "Stroke.h"
 
+static CanvasViewController *instance = nil;
+
 @interface CanvasViewController ()
 {
     NSTimeInterval lastTimeStamp;
@@ -31,14 +33,26 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.size = 5;
+        self.color = [UIColor blackColor];
+        
         self.firstStroke = [[[Stroke alloc] init] autorelease];
         
-        self.testview = [[[UIView alloc] initWithFrame:self.view.bounds]autorelease];
-        _testview.backgroundColor = [UIColor greenColor];
+        self.testview = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)] autorelease];
+        _testview.backgroundColor = [UIColor clearColor];
         _testview.layer.delegate = self;
         [self.view addSubview:_testview];
     }
     return self;
+}
+
++ (CanvasViewController *)defaultInstance
+{
+    if (instance == nil) {
+        instance = [[[CanvasViewController alloc] initWithNibName:@"CanvasViewController" bundle:[NSBundle mainBundle]] autorelease];
+    }
+    return instance;
 }
 
 - (void)dealloc {
@@ -84,8 +98,8 @@
     
     Dot *lastDot = [[[Dot alloc] init] autorelease];
     lastDot.location = location;
-    lastDot.size = 10;
-    lastDot.color = [UIColor redColor];
+    lastDot.size = _size;
+    lastDot.color = _color;
     [_firstStroke addMark:lastDot];
 }
 
@@ -103,8 +117,8 @@
         lastStroke = _firstStroke.lastChild;
     }
     
-    lastStroke.size = 5;
-    lastStroke.color = [UIColor blueColor];
+    lastStroke.size = _size;
+    lastStroke.color = _color;
     
     
     Vertex *lastVertex = [[[Vertex alloc] init] autorelease];

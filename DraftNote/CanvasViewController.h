@@ -10,6 +10,12 @@
 
 @interface CanvasViewController : UIViewController
 
+@property (nonatomic, retain) UIColor *color;
+@property (nonatomic, assign) CGFloat size;
+
+
 @property (retain, nonatomic) IBOutlet UIToolbar *toolbar;
 - (IBAction)tapPalette:(id)sender;
+
++ (CanvasViewController *)defaultInstance;
 @end
