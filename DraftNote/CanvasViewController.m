@@ -90,6 +90,12 @@ static CanvasViewController *instance = nil;
     [self.navigationController pushViewController:paletteViewController animated:YES];
 }
 
+- (IBAction)tapTrash:(id)sender
+{
+    self.firstStroke = [[[Stroke alloc] init] autorelease];
+    [_testview.layer setNeedsDisplay];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];

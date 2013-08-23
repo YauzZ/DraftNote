@@ -17,5 +17,7 @@
 @property (retain, nonatomic) IBOutlet UIToolbar *toolbar;
 - (IBAction)tapPalette:(id)sender;
 
+- (IBAction)tapTrash:(id)sender;
+
 + (CanvasViewController *)defaultInstance;
 @end
