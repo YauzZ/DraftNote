@@ -93,6 +93,7 @@ static CanvasViewController *instance = nil;
 
 - (IBAction)tapTrash:(id)sender
 {
+    _currentScribble.parentStroke = [[[Stroke alloc] init] autorelease];
     [_stackOfMarks removeAllObjects];
     [_currentScribbleView.layer setNeedsDisplay];
 }

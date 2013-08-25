@@ -35,6 +35,7 @@
 		3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E517AF9AEC003C4CAA /* Stroke.m */; };
 		3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E817AF9FD2003C4CAA /* Dot.m */; };
 		3BD648B117C74E85004C60EA /* Scribble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD648B017C74E85004C60EA /* Scribble.m */; };
+		55E68D2017C8CD8700261256 /* ScribbleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E68D1F17C8CD8700261256 /* ScribbleManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		3BC4D8E817AF9FD2003C4CAA /* Dot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dot.m; sourceTree = "<group>"; };
 		3BD648AF17C74E85004C60EA /* Scribble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scribble.h; sourceTree = "<group>"; };
 		3BD648B017C74E85004C60EA /* Scribble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scribble.m; sourceTree = "<group>"; };
+		55E68D1E17C8CD8700261256 /* ScribbleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScribbleManager.h; sourceTree = "<group>"; };
+		55E68D1F17C8CD8700261256 /* ScribbleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScribbleManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 			children = (
 				3BD648AF17C74E85004C60EA /* Scribble.h */,
 				3BD648B017C74E85004C60EA /* Scribble.m */,
+				55E68D1E17C8CD8700261256 /* ScribbleManager.h */,
+				55E68D1F17C8CD8700261256 /* ScribbleManager.m */,
 			);
 			name = Scribble;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */,
 				3B8EA2A317C4C37800B8C7C9 /* NSMutableArray+Stack.m in Sources */,
 				3BD648B117C74E85004C60EA /* Scribble.m in Sources */,
+				55E68D2017C8CD8700261256 /* ScribbleManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

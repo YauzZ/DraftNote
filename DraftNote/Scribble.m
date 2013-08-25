@@ -44,4 +44,19 @@
     [self didChangeValueForKey:@"mark"];
 }
 
+- (NSData *) data
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_parentStroke];
+    return data;
+}
+
++ (Scribble *) scribbleWithData:(NSData *)data
+{
+    // It raises an NSInvalidArchiveOperationException if data is not a valid archive
+    Scribble *newScribble = [[[Scribble alloc] init] autorelease];
+    newScribble.parentStroke = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    return newScribble;
+}
+
 @end

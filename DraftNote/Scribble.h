@@ -20,4 +20,7 @@
 - (void) addMark:(id <Mark>)aMark;
 - (void) removeMark:(id <Mark>)aMark;
 
++ (Scribble *) scribbleWithData:(NSData *)data;
+- (NSData *) data;
+
 @end
