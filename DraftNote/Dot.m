@@ -27,4 +27,20 @@
     CGContextFillEllipseInRect(context, frame);
 }
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if (self = [super init])
+    {
+        _color = [[coder decodeObjectForKey:@"DotColor"] retain];
+        _size = [coder decodeFloatForKey:@"DotSize"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_color forKey:@"DotColor"];
+    [coder encodeFloat:_size forKey:@"DotSize"];
+}
 @end

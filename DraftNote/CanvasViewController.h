@@ -18,6 +18,8 @@
 - (IBAction)tapTrash:(id)sender;
 - (IBAction)tapUndo:(id)sender;
 - (IBAction)tapRedo:(id)sender;
+- (IBAction)tapSave:(id)sender;
+- (IBAction)tapOpen:(id)sender;
 
 + (CanvasViewController *)defaultInstance;
 

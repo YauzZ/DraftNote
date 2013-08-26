@@ -13,6 +13,8 @@
 #import "Vertex.h"
 #import "Stroke.h"
 #import "NSMutableArray+Stack.h"
+#import "UIView+Image.h"
+#import "ScribbleManager.h"
 
 
 static CanvasViewController *instance = nil;
@@ -116,6 +118,17 @@ static CanvasViewController *instance = nil;
     }
 }
 
+- (IBAction)tapSave:(id)sender
+{
+    ScribbleManager *scribbleMgr = [ScribbleManager defaultScribbleMgr];
+    [scribbleMgr SaveScribble:_currentScribble withThumbnail:[_currentScribbleView renderToImage]];
+}
+
+- (IBAction)tapOpen:(id)sender
+{
+    
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -146,13 +159,11 @@ static CanvasViewController *instance = nil;
     lastStroke.size = _currentScribble.size;
     lastStroke.color = _currentScribble.color;
     
-    
     Vertex *lastVertex = [[[Vertex alloc] init] autorelease];
     lastVertex.location = location;
-    
     [lastStroke addMark:lastVertex];
     
-    if (event.timestamp - lastTimeStamp > 0.01) {
+    if (event.timestamp - lastTimeStamp > 0.05) {
         lastTimeStamp = event.timestamp;
         [_currentScribbleView.layer setNeedsDisplay];
     }

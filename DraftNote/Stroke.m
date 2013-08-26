@@ -90,4 +90,24 @@
 {
     return [_children count];
 }
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if (self = [super init])
+    {
+        _color = [[coder decodeObjectForKey:@"StrokeColor"] retain];
+        _size = [coder decodeFloatForKey:@"StrokeSize"];
+        _children = [[coder decodeObjectForKey:@"StrokeChildren"] retain];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_color forKey:@"StrokeColor"];
+    [coder encodeFloat:_size forKey:@"StrokeSize"];
+    [coder encodeObject:_children forKey:@"StrokeChildren"];
+}
+
 @end

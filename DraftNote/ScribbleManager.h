@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Scribble.h"
 
 @interface ScribbleManager : NSObject
+
+@property (nonatomic, retain, readonly) NSMutableArray *scribblesOfMD5;
+
++ (ScribbleManager *)defaultScribbleMgr;
++ (NSString *)scribbleDataPath;
++ (NSString *)scribbleThumbnailPath;
+
+- (void)SaveScribble:(Scribble *)scribble withThumbnail:(UIImage *)image;
 
 @end

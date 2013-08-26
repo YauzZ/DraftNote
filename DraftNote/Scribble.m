@@ -44,7 +44,7 @@
     [self didChangeValueForKey:@"mark"];
 }
 
-- (NSData *) data
+- (NSData *)data
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_parentStroke];
     return data;
