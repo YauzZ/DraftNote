@@ -35,6 +35,8 @@
 		3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E517AF9AEC003C4CAA /* Stroke.m */; };
 		3BC4D8E917AF9FD2003C4CAA /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E817AF9FD2003C4CAA /* Dot.m */; };
 		3BD648B117C74E85004C60EA /* Scribble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD648B017C74E85004C60EA /* Scribble.m */; };
+		3BD648B417CB2BC4004C60EA /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD648B317CB2BC4004C60EA /* NSData+MD5.m */; };
+		3BD648B717CB30D8004C60EA /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD648B617CB30D7004C60EA /* UIView+Image.m */; };
 		55E68D2017C8CD8700261256 /* ScribbleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E68D1F17C8CD8700261256 /* ScribbleManager.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,10 @@
 		3BC4D8E817AF9FD2003C4CAA /* Dot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dot.m; sourceTree = "<group>"; };
 		3BD648AF17C74E85004C60EA /* Scribble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scribble.h; sourceTree = "<group>"; };
 		3BD648B017C74E85004C60EA /* Scribble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scribble.m; sourceTree = "<group>"; };
+		3BD648B217CB2BC4004C60EA /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		3BD648B317CB2BC4004C60EA /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		3BD648B517CB30D7004C60EA /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
+		3BD648B617CB30D7004C60EA /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
 		55E68D1E17C8CD8700261256 /* ScribbleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScribbleManager.h; sourceTree = "<group>"; };
 		55E68D1F17C8CD8700261256 /* ScribbleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScribbleManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +225,10 @@
 			children = (
 				3B8EA2A117C4C37800B8C7C9 /* NSMutableArray+Stack.h */,
 				3B8EA2A217C4C37800B8C7C9 /* NSMutableArray+Stack.m */,
+				3BD648B217CB2BC4004C60EA /* NSData+MD5.h */,
+				3BD648B317CB2BC4004C60EA /* NSData+MD5.m */,
+				3BD648B517CB30D7004C60EA /* UIView+Image.h */,
+				3BD648B617CB30D7004C60EA /* UIView+Image.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -320,6 +330,8 @@
 				3B8EA2A317C4C37800B8C7C9 /* NSMutableArray+Stack.m in Sources */,
 				3BD648B117C74E85004C60EA /* Scribble.m in Sources */,
 				55E68D2017C8CD8700261256 /* ScribbleManager.m in Sources */,
+				3BD648B417CB2BC4004C60EA /* NSData+MD5.m in Sources */,
+				3BD648B717CB30D8004C60EA /* UIView+Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
