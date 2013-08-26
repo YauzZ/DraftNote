@@ -42,6 +42,10 @@ static ScribbleManager *instance = nil;
 {
     NSData *data = [scribble data];
     NSString *scribblePath = [[ScribbleManager scribbleDataPath] stringByAppendingPathComponent:[data md5]];
+    if ([self fileExistAtPath:scribblePath]) {
+        return;
+    }
+    
     NSLog(@"write file to %@",scribblePath);
     [data writeToFile:scribblePath atomically:YES];
     [_scribblesOfMD5 addObject:[data md5]];
@@ -49,6 +53,17 @@ static ScribbleManager *instance = nil;
     NSString *thumbnailPath = [[ScribbleManager scribbleThumbnailPath] stringByAppendingPathComponent:[data md5]];
     NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
     [imageData writeToFile:thumbnailPath atomically:YES];
+}
+
+- (NSArray *)Scribbles
+{
+    return [NSArray arrayWithArray:_scribblesOfMD5];
+}
+
+- (BOOL)fileExistAtPath:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    return [fileManager fileExistsAtPath:path];
 }
 
 + (NSString *)scribbleDataPath
