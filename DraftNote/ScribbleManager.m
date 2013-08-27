@@ -8,6 +8,7 @@
 
 #import "ScribbleManager.h"
 #import "NSData+MD5.h"
+#import "UIAlertView+Faster.h"
 
 #define ScribbleDataPath [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/data"]
 #define ScribbleThumbnailPath [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/thumbnails"]
@@ -43,10 +44,11 @@ static ScribbleManager *instance = nil;
     NSData *data = [scribble data];
     NSString *scribblePath = [[ScribbleManager scribbleDataPath] stringByAppendingPathComponent:[data md5]];
     if ([self fileExistAtPath:scribblePath]) {
+        [UIAlertView alertWithTitle:@"" description:@"scribble is existed!"];
         return;
     }
     
-    NSLog(@"write file to %@",scribblePath);
+    [UIAlertView alertWithTitle:@"" description:@"scribble is saved!"];
     [data writeToFile:scribblePath atomically:YES];
     [_scribblesOfMD5 addObject:[data md5]];
     
