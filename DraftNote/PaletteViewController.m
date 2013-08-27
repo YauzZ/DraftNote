@@ -52,13 +52,13 @@
 
 - (IBAction)valueOfColorChanged
 {
-    _palettePreview.backgroundColor = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:1.0];
+    _palettePreview.backgroundColor = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:0.8];
 }
 
 - (IBAction)tapDone:(id)sender
 {
     CanvasViewController *viewController = [CanvasViewController defaultInstance];
-    viewController.currentScribble.color = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:1.0];
+    viewController.currentScribble.color = [UIColor colorWithRed:_sliderOfR.value green:_sliderOfG.value blue:_sliderOfB.value alpha:0.8];
     viewController.currentScribble.size = _sliderOfSize.value;
     [self.navigationController popViewControllerAnimated:YES];
 }

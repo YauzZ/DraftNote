@@ -165,7 +165,7 @@ static CanvasViewController *instance = nil;
     lastVertex.location = location;
     [lastStroke addMark:lastVertex];
     
-    if (event.timestamp - lastTimeStamp > 0.05) {
+    if (event.timestamp - lastTimeStamp > 0.02) {
         lastTimeStamp = event.timestamp;
         [_currentScribbleView.layer setNeedsDisplay];
     }
