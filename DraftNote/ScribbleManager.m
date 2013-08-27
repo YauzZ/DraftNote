@@ -55,6 +55,12 @@ static ScribbleManager *instance = nil;
     [imageData writeToFile:thumbnailPath atomically:YES];
 }
 
+- (Scribble *)loadScribbleWithMD5:(NSString *)md5
+{
+    NSString *scribblePath = [[ScribbleManager scribbleDataPath] stringByAppendingPathComponent:md5];
+    return [Scribble scribbleWithData:[NSData dataWithContentsOfFile:scribblePath]];
+}
+
 - (NSArray *)scribbles
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];

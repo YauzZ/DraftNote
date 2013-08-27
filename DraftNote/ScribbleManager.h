@@ -16,6 +16,7 @@
 + (NSString *)scribbleThumbnailPath;
 
 - (void)saveScribble:(Scribble *)scribble withThumbnail:(UIImage *)image;
+- (Scribble *)loadScribbleWithMD5:(NSString *)md5;
 - (NSArray *)scribbles;
 - (NSArray *)thumbnails;
 
