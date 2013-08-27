@@ -10,5 +10,6 @@
 
 @interface ThumbnailCollectionViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UICollectionView *thumbnailCollectionView;
 - (IBAction)tapDone:(id)sender;
 @end
