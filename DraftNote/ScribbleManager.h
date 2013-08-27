@@ -15,7 +15,8 @@
 + (NSString *)scribbleDataPath;
 + (NSString *)scribbleThumbnailPath;
 
-- (void)SaveScribble:(Scribble *)scribble withThumbnail:(UIImage *)image;
-- (NSArray *)Scribbles;
+- (void)saveScribble:(Scribble *)scribble withThumbnail:(UIImage *)image;
+- (NSArray *)scribbles;
+- (NSArray *)thumbnails;
 
 @end

@@ -122,7 +122,7 @@ static CanvasViewController *instance = nil;
 - (IBAction)tapSave:(id)sender
 {
     ScribbleManager *scribbleMgr = [ScribbleManager defaultScribbleMgr];
-    [scribbleMgr SaveScribble:_currentScribble withThumbnail:[_currentScribbleView renderToImage]];
+    [scribbleMgr saveScribble:_currentScribble withThumbnail:[_currentScribbleView renderToImage]];
 }
 
 - (IBAction)tapOpen:(id)sender
