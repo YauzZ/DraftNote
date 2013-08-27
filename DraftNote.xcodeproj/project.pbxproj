@@ -30,6 +30,8 @@
 		3B51B07A17AF861B005CE230 /* PaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51B07817AF861B005CE230 /* PaletteViewController.m */; };
 		3B51B07B17AF861B005CE230 /* PaletteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B51B07917AF861B005CE230 /* PaletteViewController.xib */; };
 		3B51B08017AF949C005CE230 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B51B07F17AF949C005CE230 /* QuartzCore.framework */; };
+		3B5AF60117CC43B4003ED67F /* ThumbnailCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AF5FF17CC43B4003ED67F /* ThumbnailCollectionViewController.m */; };
+		3B5AF60217CC43B4003ED67F /* ThumbnailCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AF60017CC43B4003ED67F /* ThumbnailCollectionViewController.xib */; };
 		3B8EA2A317C4C37800B8C7C9 /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EA2A217C4C37800B8C7C9 /* NSMutableArray+Stack.m */; };
 		3BC4D8E317AF95C3003C4CAA /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E217AF95C3003C4CAA /* Vertex.m */; };
 		3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E517AF9AEC003C4CAA /* Stroke.m */; };
@@ -71,6 +73,9 @@
 		3B51B07917AF861B005CE230 /* PaletteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaletteViewController.xib; sourceTree = "<group>"; };
 		3B51B07D17AF9339005CE230 /* Mark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
 		3B51B07F17AF949C005CE230 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3B5AF5FE17CC43B4003ED67F /* ThumbnailCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCollectionViewController.h; sourceTree = "<group>"; };
+		3B5AF5FF17CC43B4003ED67F /* ThumbnailCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCollectionViewController.m; sourceTree = "<group>"; };
+		3B5AF60017CC43B4003ED67F /* ThumbnailCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCollectionViewController.xib; sourceTree = "<group>"; };
 		3B8EA2A117C4C37800B8C7C9 /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
 		3B8EA2A217C4C37800B8C7C9 /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
 		3BC4D8E117AF95C3003C4CAA /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 				3B51B04717AF8272005CE230 /* Supporting Files */,
 				3B51B06217AF83F1005CE230 /* Resources */,
 				3B51B07C17AF861F005CE230 /* PaletteViewController */,
+				3B5AF5F817CC42C7003ED67F /* ThumbnailCollectionViewController */,
 				3B51B07617AF85F4005CE230 /* CanvasViewController */,
 				3BD648AE17C74E31004C60EA /* Scribble */,
 				3B51B07E17AF9340005CE230 /* Mark */,
@@ -218,6 +224,16 @@
 				3BC4D8E817AF9FD2003C4CAA /* Dot.m */,
 			);
 			name = Mark;
+			sourceTree = "<group>";
+		};
+		3B5AF5F817CC42C7003ED67F /* ThumbnailCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B5AF5FE17CC43B4003ED67F /* ThumbnailCollectionViewController.h */,
+				3B5AF5FF17CC43B4003ED67F /* ThumbnailCollectionViewController.m */,
+				3B5AF60017CC43B4003ED67F /* ThumbnailCollectionViewController.xib */,
+			);
+			name = ThumbnailCollectionViewController;
 			sourceTree = "<group>";
 		};
 		3B8EA29D17C4C2F300B8C7C9 /* Utils */ = {
@@ -310,6 +326,7 @@
 				3B51B07417AF8412005CE230 /* small_dot.png in Resources */,
 				3B51B07517AF8412005CE230 /* undo.png in Resources */,
 				3B51B07B17AF861B005CE230 /* PaletteViewController.xib in Resources */,
+				3B5AF60217CC43B4003ED67F /* ThumbnailCollectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +349,7 @@
 				55E68D2017C8CD8700261256 /* ScribbleManager.m in Sources */,
 				3BD648B417CB2BC4004C60EA /* NSData+MD5.m in Sources */,
 				3BD648B717CB30D8004C60EA /* UIView+Image.m in Sources */,
+				3B5AF60117CC43B4003ED67F /* ThumbnailCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

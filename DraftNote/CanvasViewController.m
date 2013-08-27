@@ -15,6 +15,7 @@
 #import "NSMutableArray+Stack.h"
 #import "UIView+Image.h"
 #import "ScribbleManager.h"
+#import "ThumbnailCollectionViewController.h"
 
 
 static CanvasViewController *instance = nil;
@@ -126,7 +127,8 @@ static CanvasViewController *instance = nil;
 
 - (IBAction)tapOpen:(id)sender
 {
-    
+    ThumbnailCollectionViewController *viewController = [[[ThumbnailCollectionViewController alloc] init] autorelease];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
