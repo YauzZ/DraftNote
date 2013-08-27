@@ -10,6 +10,7 @@
 
 #import "ThumbnailCollectionViewController.h"
 #import "ScribbleManager.h"
+#import "CanvasViewController.h"
 
 @interface ThumbnailCollectionViewController ()
 
@@ -30,8 +31,6 @@
 {
     self = [super init];
     if (self) {
-        _thumbnailCollectionView.dataSource = (id)self;
-        _thumbnailCollectionView.delegate = (id)self;
         
     }
     return self;
@@ -42,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [_thumbnailCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
+    _thumbnailCollectionView.allowsSelection = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +58,22 @@
     [_thumbnailCollectionView release];
     [super dealloc];
 }
+
+#pragma mark - UICollection Delegate
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ScribbleManager *scribbleMgr = [ScribbleManager defaultScribbleMgr];
+    NSArray *files = [scribbleMgr scribbles];
+    Scribble *scribble = [scribbleMgr loadScribbleWithMD5:[files objectAtIndex:indexPath.item]];
+    CanvasViewController *viewController = [CanvasViewController defaultInstance];
+    viewController.currentScribble = scribble;
+    
+    [self tapDone:nil];
+    return NO;
+}
+
+#pragma mark - UICollection DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
