@@ -32,6 +32,7 @@
 		3B51B08017AF949C005CE230 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B51B07F17AF949C005CE230 /* QuartzCore.framework */; };
 		3B5AF60117CC43B4003ED67F /* ThumbnailCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AF5FF17CC43B4003ED67F /* ThumbnailCollectionViewController.m */; };
 		3B5AF60217CC43B4003ED67F /* ThumbnailCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AF60017CC43B4003ED67F /* ThumbnailCollectionViewController.xib */; };
+		3B5AF60517CC5434003ED67F /* UIAlertView+Faster.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AF60417CC5434003ED67F /* UIAlertView+Faster.m */; };
 		3B8EA2A317C4C37800B8C7C9 /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EA2A217C4C37800B8C7C9 /* NSMutableArray+Stack.m */; };
 		3BC4D8E317AF95C3003C4CAA /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E217AF95C3003C4CAA /* Vertex.m */; };
 		3BC4D8E617AF9AEC003C4CAA /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4D8E517AF9AEC003C4CAA /* Stroke.m */; };
@@ -76,6 +77,8 @@
 		3B5AF5FE17CC43B4003ED67F /* ThumbnailCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCollectionViewController.h; sourceTree = "<group>"; };
 		3B5AF5FF17CC43B4003ED67F /* ThumbnailCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCollectionViewController.m; sourceTree = "<group>"; };
 		3B5AF60017CC43B4003ED67F /* ThumbnailCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCollectionViewController.xib; sourceTree = "<group>"; };
+		3B5AF60317CC5434003ED67F /* UIAlertView+Faster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Faster.h"; sourceTree = "<group>"; };
+		3B5AF60417CC5434003ED67F /* UIAlertView+Faster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Faster.m"; sourceTree = "<group>"; };
 		3B8EA2A117C4C37800B8C7C9 /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
 		3B8EA2A217C4C37800B8C7C9 /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
 		3BC4D8E117AF95C3003C4CAA /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 				3BD648B317CB2BC4004C60EA /* NSData+MD5.m */,
 				3BD648B517CB30D7004C60EA /* UIView+Image.h */,
 				3BD648B617CB30D7004C60EA /* UIView+Image.m */,
+				3B5AF60317CC5434003ED67F /* UIAlertView+Faster.h */,
+				3B5AF60417CC5434003ED67F /* UIAlertView+Faster.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				3BD648B417CB2BC4004C60EA /* NSData+MD5.m in Sources */,
 				3BD648B717CB30D8004C60EA /* UIView+Image.m in Sources */,
 				3B5AF60117CC43B4003ED67F /* ThumbnailCollectionViewController.m in Sources */,
+				3B5AF60517CC5434003ED67F /* UIAlertView+Faster.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
